@@ -5,17 +5,15 @@
     font-family: 'Roboto', sans-serif;
 }
 
-
-
-
 .header {
     display: flex;
     background-color: white;
     width: 100%;
     height: 60px;
     align-items: center;
-    padding-left: 165px;
+    padding-left: 11%;
     justify-content: space-between;
+    padding-right: 11%;
 }
 
 .logo {
@@ -23,11 +21,8 @@
 }
 
 .header_btn1 {
+    padding: 7px 48px 8px 48px;
     margin-right: 16px;
-    padding-left: 48px;
-    padding-right: 48px;
-    padding-top: 7px;
-    padding-bottom: 8px;
     background-color: white;
     font-weight: 700;
     font-size: 12px;
@@ -38,26 +33,31 @@
 
 
 .header_btn2 {
-    margin-right: 165px;
+
     background-color: #276EF1;
     border: 1px solid #276EF1;
     color: white;
     font-weight: 700;
     font-size: 12px;
     line-height: 140%;
-    padding-top: 7px;
-    padding-bottom: 8px;
-    padding-right: 34px;
-    padding-left: 34px;
+    padding: 7px 34px 8px 34px;
+
 }
 
-.mainpage {
+@media only screen and (max-width:800px) {
+    .header_btn1 {
+        display: none;
+    }
+}
+
+.mainpage_left {
+    padding-top: 11%;
     padding-left: 11%;
 
 }
 
 .maintext {
-    padding-top: 169px;
+
     font-weight: 800;
     font-size: 72px;
     line-height: 98px;
@@ -79,10 +79,7 @@
 
 .mainpagebtn {
     margin-top: 58px;
-    padding-top: 18px;
-    padding-bottom: 17px;
-    padding-left: 36px;
-    padding-right: 36px;
+    padding: 18px 36px 17px 36px;
     font-weight: 800;
     font-size: 18px;
     line-height: 21px;
@@ -104,4 +101,66 @@
     text-align: center;
     padding-left: 35%;
     padding-right: 35%;
-} 
+}
+
+.circle {
+    width: 42vw;
+    height: 42vw;
+    border-radius: 50%;
+    background: rgba(39, 110, 241, 0.2);
+    margin-left: 46px;
+    margin-top: 54px;
+
+}
+
+.mainpageright {
+    display: flex;
+}
+
+.secondpageinfo {
+
+    text-align: center;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 64px;
+}
+
+.loremipsum2 {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    padding-top: 8px;
+    padding-left: 31%;
+    padding-right: 31%;
+
+
+}
+
+.future {
+
+    padding-top: 50px;
+    padding-right: 165px;
+    padding-bottom: 65px;
+
+
+}
+
+.ftr1svg {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.ftr1text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    max-width: 350px;
+    padding-left: 165px;
+}
+
+.mainpage {
+    display: flex;
+    flex-wrap: wrap;
+}
