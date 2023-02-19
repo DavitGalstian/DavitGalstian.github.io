@@ -42,6 +42,14 @@
     line-height: 140%;
     padding: 7px 34px 8px 34px;
 
+
+}
+
+@media only screen and (max-width:800px) {
+    .header_btn2 {
+        padding: 7px 19px 8px 19px;
+        margin-left: 16px;
+    }
 }
 
 @media only screen and (max-width:800px) {
@@ -54,6 +62,13 @@
     padding-top: 11%;
     padding-left: 11%;
 
+
+}
+
+@media only screen and (max-width:800px) {
+    .mainpage {
+        text-align: center;
+    }
 }
 
 .maintext {
@@ -63,11 +78,28 @@
     line-height: 98px;
 }
 
+@media only screen and (max-width:800px) {
+    .maintext {
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 28px;
+    }
+}
+
 .maintextsecond {
     font-weight: 800;
     font-size: 72px;
     line-height: 98px;
 }
+
+@media only screen and (max-width:800px) {
+    .maintextsecond {
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 28px;
+    }
+}
+
 
 .ispaniol {
     margin-top: 16px;
@@ -75,6 +107,14 @@
     font-size: 18px;
     line-height: 32px;
     max-width: 479px;
+}
+
+@media only screen and (max-width:800px) {
+    .ispaniol {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px;
+    }
 }
 
 .mainpagebtn {
@@ -87,8 +127,9 @@
     background-color: #276EF1;
     border: none;
     cursor: pointer;
-    margin-bottom: 169px;
+
 }
+
 
 .maintext2 {
     font-weight: 800;
@@ -113,54 +154,75 @@
 
 }
 
+@media only screen and (max-width:800px) {
+    .circle {
+        text-align: center;
+    }
+}
+
 .mainpageright {
     display: flex;
 }
 
-.secondpageinfo {
 
-    text-align: center;
-    font-weight: 800;
-    font-size: 48px;
-    line-height: 64px;
-}
-
-.loremipsum2 {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 32px;
-    text-align: center;
-    padding-top: 8px;
-    padding-left: 31%;
-    padding-right: 31%;
-
-
-}
-
-.future {
-
-    padding-top: 50px;
-    padding-right: 165px;
-    padding-bottom: 65px;
-
-
-}
-
-.ftr1svg {
-    display: flex;
-    flex-direction: column;
-
-}
-
-.ftr1text {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 26px;
-    max-width: 350px;
-    padding-left: 165px;
-}
 
 .mainpage {
     display: flex;
     flex-wrap: wrap;
+}
+
+
+
+
+.secondmaintext {
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 64px;
+    text-align: center;
+    margin-top: 116px;
+
+}
+
+.secondloremipsum {
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    padding-top: 8px;
+    x
+}
+
+.future2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ftr2svg {
+    margin-top: 48px;
+    margin-bottom: 24px;
+}
+
+.ftr2txt {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    max-width: 350px;
+    width: 350px;
+    height: 32px;
+    text-align: center;
+}
+
+.ftr2txt2 {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 26px;
+    max-width: 350px;
+    width: 350px;
+    height: 32px;
+    text-align: center;
+}
+
+.future1{
+    
 }
