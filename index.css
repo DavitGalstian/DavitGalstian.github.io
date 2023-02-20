@@ -20,7 +20,7 @@ button {
     padding-right: 11%;
 }
 
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:400px) {
     .header {
         padding: 0px 12px;
     }
@@ -125,9 +125,11 @@ button {
     max-width: 479px;
 }
 
-@media only screen and (max-width:800px) {
+@media only screen and (max-width:400px) {
     .ispaniol {
         font-weight: 400;
+        padding-left: 30px;
+        padding-right: 30px;
         font-size: 14px;
         line-height: 22px;
     }
@@ -165,7 +167,6 @@ button {
     height: 42vw;
     border-radius: 50%;
     background: rgba(39, 110, 241, 0.2);
-
     margin-top: 54px;
 
 }
@@ -176,24 +177,18 @@ button {
     }
 }
 
-@media only screen and (max-width:800px) {
-    .circle {
-        text-align: center;
-    }
-}
 
-.mainpageright {
+
+.main_page_right {
     display: flex;
 }
-
-
 
 .main_page {
 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-left: 4%;
+    padding: 0 4%;
 }
 
 
@@ -243,7 +238,7 @@ button {
 
 @media only screen and (max-width:800px) {
     .futures {
-        display: flex;
+
         flex-direction: column;
     }
 
@@ -400,5 +395,4 @@ button {
     .futures_part_2 {
         display: none;
     }
-
 }
