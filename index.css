@@ -58,8 +58,9 @@ button {
 @media only screen and (max-width:800px) {
     .header_btn1 {
         color: white;
-        margin-left: 16px;
         background-color: #276EF1;
+        padding: 7px 19px 8px 19px;
+
     }
 }
 
@@ -149,6 +150,13 @@ button {
 }
 
 
+@media only screen and (max-width:400px) {
+    .main_page_btn {
+        padding: 11px 36px 12px 36px;
+        margin-top: 16px;
+    }
+}
+
 .maintext2 {
     font-weight: 800;
     font-size: 48px;
@@ -174,6 +182,8 @@ button {
 @media only screen and (max-width:800px) {
     .circle {
         align-items: center;
+        width: 223px;
+        height: 223px;
     }
 }
 
@@ -203,6 +213,14 @@ button {
 
 }
 
+@media only screen and (max-width:800px) {
+    .second_main_text {
+        font-weight: 800;
+        font-size: 24px;
+        line-height: 28px;  
+    }
+}
+
 .second_loremipsum {
     text-align: center;
     font-weight: 400;
@@ -212,6 +230,15 @@ button {
     padding-right: 30%;
     padding-left: 30%;
 }
+
+@media only screen and (max-width:800px) {
+    .second_loremipsum {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 22px; 
+    }
+}
+
 
 @media only screen and (max-width:800px) {
     .second_loremipsum {
@@ -395,9 +422,10 @@ button {
 
     .futures_part_2 {
         display: none;
+
     }
 
     .future2 {
-        margin-bottom: 56pxx;
+        margin-bottom: 56px;
     }
 }
