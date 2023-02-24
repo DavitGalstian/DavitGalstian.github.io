@@ -316,6 +316,7 @@ button {
     padding-left: 11%;
     padding-right: 11%;
     padding-top: 64px;
+    margin-bottom: 64px;
 
 }
 
@@ -394,5 +395,9 @@ button {
 
     .futures_part_2 {
         display: none;
+    }
+
+    .future2 {
+        margin-bottom: 56pxx;
     }
 }
