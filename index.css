@@ -497,6 +497,7 @@ button {
 
     .third_page_main_text {
         text-align: center;
+        padding-top: 10px;
     }
 
     .third_page {
@@ -674,4 +675,143 @@ button {
     font-size: 14px;
     line-height: 24px;
     color: #969BAB;
+}
+
+.fourth_page {
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (max-width:1115px) {
+    .fourth_page {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .fourth_page_box {
+        margin-bottom: 0px;
+        margin-left: 78px;
+
+    }
+
+    .fourth_page_right{
+        margin-bottom: 55px;
+    }
+}
+
+@media only screen and (max-width:599px) {
+   
+    .fourth_page_box{
+        margin-left: 0px;
+       
+    }
+}
+
+.fourth_page_left{
+  justify-content: center;
+  align-items:center ;
+}
+.fourth_page_box {
+    width: 540px;
+    background: #276EF1;
+    opacity: 0.2;
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 56px 90px 0px 90px;
+    height: 540px;
+    
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+.fourth_page_right {
+    display: flex;
+    flex-direction: column;
+    padding-left: 78px;
+    justify-content: center;
+}
+
+.fourth_page_main_text {
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 54px;
+
+}
+
+.fourth_page_text{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    padding-top: 32px;
+    padding-right: 213px;
+}
+
+.fourth_page_get_started {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #276EF1;
+    padding-top: 32px;
+
+}
+.fifth_page{
+    display: flex;
+    flex-direction: row;
+}
+@media only screen and (max-width:1115px) {
+    .fifth_page {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .fifth_page_box{
+        margin-left: 78px;
+        margin-bottom: 50px;
+    }
+}
+@media only screen and (max-width:599px) {
+   
+    .fifth_page_box{
+        margin-left: 0px;
+     width: 200vw;
+    }
+}
+.fifth_page_left{
+    display: flex;
+    flex-direction: column;
+    padding-left: 78px;
+    justify-content: center;
+   
+}
+.fifth_page_main_text{
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 54px;
+}
+
+.fift_page_text{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    padding-top: 32px;
+    padding-right: 126px;
+}
+
+.fifth_page_get_started{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #276EF1;
+    padding-top: 32px;
+}
+
+.fifth_page_box{
+    width: 540px;
+    background: #276EF1;
+    opacity: 0.2;
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 56px 90px 0px 90px;
+    height: 540px;
+    
 }
