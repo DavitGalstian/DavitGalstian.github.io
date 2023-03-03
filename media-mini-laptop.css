@@ -1,0 +1,143 @@
+@media only screen and (max-width:1115px) {
+    .third_page_box {
+        width: 70%;
+        margin-left: 0px;
+        align-items: flex-start;
+    }
+
+    .third_page_left {
+        padding-left: 0;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .third_page_main_text {
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    .third_page {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .third_page_right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .third_page_box_2 {
+        width: 70%;
+        margin-left: 0px;
+        margin-top: 24px;
+    }
+
+    .third_page_box_3 {
+        width: 70%;
+        margin-left: 0px;
+        margin-top: 24px;
+        margin-bottom: 55px;
+    }
+
+    .fourth_page {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+
+    .fourth_page_box {
+        margin-bottom: 55px;
+        margin-left: 78px;
+        margin-top: 0px;
+
+    }
+
+    .fourth_page_right {
+        margin-bottom: 36px;
+        margin-top: 15px;
+
+    }
+
+    .fifth_page {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .fifth_page_box {
+        margin-left: 78px;
+        margin-bottom: 50px;
+        margin-right: 0px;
+
+    }
+
+    .fifth_page_left {
+        margin-bottom: 55px;
+        padding-left: 78px;
+    }
+
+    .sixt_page_boxes {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sixt_page_box1 {
+        width: 70%;
+        margin-bottom: 0px;
+        padding: 27px 0px 27px 9px;
+    }
+
+
+    .sixt_page_box2 {
+        width: 70%;
+        margin-bottom: 0px;
+
+
+    }
+
+    .sixt_page_box3 {
+        width: 70%;
+        padding: 27px 0px 27px 9px;
+
+    }
+
+    .seventh_page_main {
+        text-align: center;
+    }
+
+    .seventh_page_main_img {
+        margin-right: 0px;
+
+    }
+
+    .seventh_page {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .seventh_page_box1 {
+        width: 70%;
+        margin-top: 30px;
+    }
+
+    .seventh_page_right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .seventh_page_box2 {
+        width: 70%;
+    }
+
+    .seventh_page_box3 {
+        width: 70%;
+    }
+}
