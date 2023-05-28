@@ -1,0 +1,74 @@
+.to_do{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+     background-image:url("pexels-content-pixie-2736499.jpg");
+     height:750px;
+     
+}
+
+.do_today{
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+   
+ 
+}
+
+.a{
+width: 200px;
+height: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color:  #020313;
+    border-color:#020313 ;
+    color: #021274;
+}
+
+.box_to_do{
+    box-shadow: 0 0 5px #bfbfbf;
+    padding: 1em;
+    border-radius: 4px;
+    background-color:  #404040;
+ 
+    width: 300px;
+    
+}
+
+.box_P_div{
+    
+    padding: 1em;
+    border-radius: 4px;
+    background-color:  #404040;
+  color:white;
+    width: 284px;
+    height: 82px;
+    border-bottom-color: white ;
+    margin-bottom: 5px;
+}
+
+.box_P{
+
+    color:#021274;
+}
+
+
+
+
+.box_buttons{
+    border-radius:12px;
+    padding: 9px;
+    background-color:#021274;
+    border-color:#021274 ;
+  margin-right: 5px;
+}
+
+.submit{
+    border-radius:12px;
+    padding: 9px;
+    background-color:#021274;
+    border-color:#021274 ;
+  margin-right: 5px;
+}
