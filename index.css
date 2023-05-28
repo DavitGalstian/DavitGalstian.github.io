@@ -97,9 +97,14 @@ button {
     border: 1px solid green;
     padding: 5px;
     border-radius: 5px;
+   
 }
 
 .display {
     max-height: 350px;
     overflow: auto;
 }
+
+.box_text {
+    order: -1;
+  }
