@@ -29,6 +29,9 @@ input.remove();
 }
 function submitForm() {  
 let input = document.querySelector(".a");  
+if (!input.value) {
+  return;
+}
 let display = document.querySelector(".display");  
 let newtext = document.createElement("p"); 
 let newdiv=document.createElement("div") ;
