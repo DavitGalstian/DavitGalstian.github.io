@@ -1,4 +1,4 @@
-function removebuttonfn(e) {
+function removeToDo(e) {
   e.target.parentNode.remove();
 }
 
@@ -8,21 +8,23 @@ function changeTextColor(e) {
   newText.classList.add("newText");
 }
 
-function editbtn(e) {
+function editToDo(e) {
   let paragraph = e.target.parentNode.querySelector("p");
   let newinput = document.createElement("input");
   console.log(paragraph);
   newinput.value = paragraph.textContent;
   paragraph.remove();
   e.target.parentNode.appendChild(newinput);
-  let saveButton = document.createElement("button");
-  saveButton.textContent = "Save";
-  saveButton.classList.add("toDoListbuttons");
-  e.target.parentNode.appendChild(saveButton);
-  saveButton.addEventListener("click", savebutton);
+  let saveTodo = document.createElement("button");
+  saveTodo.textContent = "Save";
+  saveTodo.classList.add("toDoListbuttons");
+  e.target.parentNode.appendChild(saveTodo);
+  saveTodo.addEventListener("click", saveToDo );
 }
 
-function savebutton(e) {
+
+
+function saveToDo(e) {
   let input = e.target.parentNode.querySelector("input");
   let newparagraph = document.createElement("p");
   newparagraph.textContent = input.value;
@@ -60,15 +62,15 @@ function submitForm() {
   newdiv.appendChild(editbutton);
 
   display.appendChild(newdiv);
-  deletebutton.addEventListener("click", removebuttonfn);
+  deletebutton.addEventListener("click", removeToDo);
   greenbutton.addEventListener("click", changeTextColor);
-  editbutton.addEventListener("click", editbtn);
+  editbutton.addEventListener("click", editToDo);
 
 }
 
-function submitButtonfn() {
+function submitToDo() {
   let submitButton = document.querySelector(".submit");
-  submitButton.addEventListener("click", submitForm);
+  submitButton.addEventListener("click", submitForm); 
 }
 
-submitButtonfn();
+submitToDo();

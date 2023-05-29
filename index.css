@@ -103,8 +103,11 @@ button {
 .display {
     max-height: 350px;
     overflow: auto;
-}
-
-.toDoListP {
+    display: flex; 
+  }
+  
+  .toDoListP {
+    display: flex;
     order: -1;
-}
+  }
+  
