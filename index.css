@@ -85,11 +85,11 @@ button {
     margin-left: 16px;
 }
 
-.box_buttons {
+.toDoListbuttons {
     margin-left: 12px;
 }
 
-.box_P_div {
+.toDoListDiv {
     display: flex;
     align-items: center;
     margin-top: 20px;
@@ -105,6 +105,6 @@ button {
     overflow: auto;
 }
 
-.box_text {
+.toDoListP {
     order: -1;
 }

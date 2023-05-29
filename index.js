@@ -1,31 +1,28 @@
-function removebutton(e) {
-
-  e.target.parentNode.remove()
+function removebuttonfn(e) {
+  e.target.parentNode.remove();
 }
 
-function done(e) {
-
-  let newtext = e.target.parentNode.querySelector("p")
-  newtext.style.color = "green"
-
+function changeTextColor(e) {
+  let newText = e.target.parentNode.querySelector("p");
+  newText.style.color = "green";
+  newText.classList.add("newText");
 }
+
 function editbtn(e) {
-
   let paragraph = e.target.parentNode.querySelector("p");
-  let newinput = document.createElement("input")
+  let newinput = document.createElement("input");
   console.log(paragraph);
   newinput.value = paragraph.textContent;
   paragraph.remove();
   e.target.parentNode.appendChild(newinput);
   let saveButton = document.createElement("button");
   saveButton.textContent = "Save";
-  saveButton.classList.add("box_buttons")
+  saveButton.classList.add("toDoListbuttons");
   e.target.parentNode.appendChild(saveButton);
-  saveButton.addEventListener("click", savebtn);
-
+  saveButton.addEventListener("click", savebutton);
 }
 
-function savebtn(e) {
+function savebutton(e) {
   let input = e.target.parentNode.querySelector("input");
   let newparagraph = document.createElement("p");
   newparagraph.textContent = input.value;
@@ -33,6 +30,7 @@ function savebtn(e) {
   input.remove();
   e.target.remove();
 }
+
 function submitForm() {
   let input = document.querySelector(".a");
   if (!input.value) {
@@ -42,37 +40,35 @@ function submitForm() {
   let newtext = document.createElement("p");
   let newdiv = document.createElement("div");
 
-  newdiv.classList.add("box_P_div");
-  newtext.classList.add("box_text");
+  newdiv.classList.add("toDoListDiv");
+  newtext.classList.add("toDoListP");
 
-
-  let deletebutton = document.createElement("button")
+  let deletebutton = document.createElement("button");
   deletebutton.textContent = "Delete";
-  deletebutton.classList.add("box_buttons");
+  deletebutton.classList.add("toDoListbuttons");
   newtext.textContent = input.value;
   input.value = "";
-  let greenbutton = document.createElement("button")
+  let greenbutton = document.createElement("button");
   greenbutton.textContent = "Mark as done";
-  greenbutton.classList.add("box_buttons")
-  let editbutton = document.createElement("button")
+  greenbutton.classList.add("toDoListbuttons");
+  let editbutton = document.createElement("button");
   editbutton.textContent = "Edit";
-  editbutton.classList.add("box_buttons");
+  editbutton.classList.add("toDoListbuttons");
   newdiv.appendChild(newtext);
   newdiv.appendChild(deletebutton);
   newdiv.appendChild(greenbutton);
   newdiv.appendChild(editbutton);
 
   display.appendChild(newdiv);
-  deletebutton.addEventListener("click", removebutton);
-  greenbutton.addEventListener("click", done);
+  deletebutton.addEventListener("click", removebuttonfn);
+  greenbutton.addEventListener("click", changeTextColor);
   editbutton.addEventListener("click", editbtn);
 
 }
 
-function numbitbtnfn() {
+function submitButtonfn() {
   let submitButton = document.querySelector(".submit");
   submitButton.addEventListener("click", submitForm);
-
 }
 
-numbitbtnfn()                      
+submitButtonfn();
