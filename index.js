@@ -41,7 +41,7 @@ function submitForm() {
   let display = document.querySelector(".display");
   let newtext = document.createElement("p");
   let newdiv = document.createElement("div");
-  
+
   newdiv.classList.add("box_P_div");
   newtext.classList.add("box_text");
 
