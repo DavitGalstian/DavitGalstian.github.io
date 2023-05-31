@@ -107,8 +107,10 @@ button {
     flex-direction: column;
   }
   
-  .toDoListP {
-    display: flex;
+  .newinoutp {
+    
     order: -1;
   }
-  
+  .done{
+    margin-left: 10px;
+  }
