@@ -4,9 +4,10 @@ function removeToDo(e) {
 
 function changeTextColor(e) {
   let newText = e.target.parentNode.querySelector("p");
+  let parent = e.target.parentNode;
   newText.style.color = "green";
   newText.classList.add("newText");
-  e.target.parentNode.classList.add("doneToDo");
+  parent.classList.add("doneToDo");
 }
 function editToDo(e) {
   let paragraph = e.target.parentNode.querySelector("p");
