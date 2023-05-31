@@ -6,15 +6,15 @@ function changeTextColor(e) {
   let newText = e.target.parentNode.querySelector("p");
   newText.style.color = "green";
   newText.classList.add("newText");
-  e.target.parentNode.classList.add("done");
-}  
+  e.target.parentNode.classList.add("doneToDo");
+}
 function editToDo(e) {
   let paragraph = e.target.parentNode.querySelector("p");
   let newinput = document.createElement("input");
   console.log(paragraph);
   newinput.value = paragraph.textContent;
   paragraph.remove();
-  
+
   e.target.parentNode.appendChild(newinput);
   let saveTodo = document.createElement("button");
   saveTodo.textContent = "Save";
@@ -26,7 +26,7 @@ function editToDo(e) {
 function saveToDo(e) {
   let input = e.target.parentNode.querySelector("input");
   let newparagraph = document.createElement("p");
-  newparagraph.classList.add("newinoutp");
+  newparagraph.classList.add("saveParagraph");
   newparagraph.textContent = input.value;
   e.target.parentNode.appendChild(newparagraph);
   input.remove();
@@ -40,7 +40,7 @@ function submitForm() {
     return;
   }
   let display = document.querySelector(".display");
-  
+
   let newtext = document.createElement("p");
   let newdiv = document.createElement("div");
   newdiv.classList.add("toDoListDiv");
@@ -56,7 +56,7 @@ function submitForm() {
   let editbutton = document.createElement("button");
   editbutton.textContent = "Edit";
   editbutton.classList.add("toDoListbuttons");
- 
+
 
   newdiv.appendChild(newtext);
   newdiv.appendChild(deletebutton);
@@ -68,28 +68,25 @@ function submitForm() {
   deletebutton.addEventListener("click", removeToDo);
   greenbutton.addEventListener("click", changeTextColor);
   editbutton.addEventListener("click", editToDo);
-  
+
 }
-  
+
 
 function submitToDo() {
   let submitButton = document.querySelector(".submit");
   submitButton.addEventListener("click", submitForm);
 }
 
-function filteredP(){
-  console.log('clicked');
+function FilterByDoneToDo() {
+
   let display = document.querySelector(".display");
-for(let i=0;i<display.children.length;i++){
-  if(!display.children[i].classList.contains("done")){
-    display.children[i].style.display="none"
+  for (let i = 0; i < display.children.length; i++) {
+    if (!display.children[i].classList.contains("doneToDo")) {
+      display.children[i].style.display = "none"
+    }
   }
 }
- 
-console.log(display.children)
+let filterToDo = document.querySelector(".filterToDo");
 
-}
-let filterToDo=document.querySelector(".filterToDo");
-console.log(filterToDo)
-filterToDo.addEventListener("click", filteredP);
+filterToDo.addEventListener("click", FilterByDoneToDo);
 submitToDo();
