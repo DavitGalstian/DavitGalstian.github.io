@@ -26,10 +26,10 @@ function editToDo(e) {
 
 function saveToDo(e) {
   let input = e.target.parentNode.querySelector("input");
-  let newparagraph = document.createElement("p");
-  newparagraph.classList.add("saveParagraph");
-  newparagraph.textContent = input.value;
-  e.target.parentNode.appendChild(newparagraph);
+  let updatedParagraph = document.createElement("p");
+  updatedParagraph.classList.add("saveParagraph");
+  updatedParagraph.textContent = input.value;
+  e.target.parentNode.appendChild(updatedParagraph);
   input.remove();
   e.target.remove();
 }
@@ -78,7 +78,7 @@ function submitToDo() {
   submitButton.addEventListener("click", submitForm);
 }
 
-function FilterByDoneToDo() {
+function filterCompletedToDo() {
 
   let display = document.querySelector(".display");
   for (let i = 0; i < display.children.length; i++) {
@@ -87,7 +87,31 @@ function FilterByDoneToDo() {
     }
   }
 }
-let filterToDo = document.querySelector(".filterToDo");
 
-filterToDo.addEventListener("click", FilterByDoneToDo);
+function FilterPendingOnlyToDo() {
+  let display = document.querySelector(".display");
+  for (let i = 0; i < display.children.length; i++) {
+    if (display.children[i].classList.contains("doneToDo")) {
+      display.children[i].style.display = "none"
+    }
+  }
+
+}
+function AllFiltersToDo() {
+  let display = document.querySelector(".display");
+  for (let i = 0; i < display.children.length; i++) {
+    display.children[i].style.display = "flex";
+  }
+}
+
+
+let filterToDo = document.querySelector(".filterToDo");
+filterToDo.addEventListener("click", filterCompletedToDo);
+let filterByPending = document.querySelector(".filterByPending");
+filterByPending.addEventListener("click", FilterPendingOnlyToDo);
+
+
+let allfilterss = document.querySelector(".Allfilters");
+allfilterss.addEventListener("click", AllFiltersToDo);
+
 submitToDo();
