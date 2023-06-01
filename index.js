@@ -8,6 +8,7 @@ function changeTextColor(e) {
   newText.style.color = "green";
   newText.classList.add("newText");
   parent.classList.add("doneToDo");
+  iftrue = true;
 }
 function editToDo(e) {
   let paragraph = e.target.parentNode.querySelector("p");
@@ -30,8 +31,12 @@ function saveToDo(e) {
   updatedParagraph.classList.add("saveParagraph");
   updatedParagraph.textContent = input.value;
   e.target.parentNode.appendChild(updatedParagraph);
+  if(iftrue==true){
+    updatedParagraph.style.color="green"
+  }
   input.remove();
   e.target.remove();
+
 }
 
 
