@@ -8,6 +8,7 @@ function changeTextColor(e) {
   newText.style.color = "green";
   newText.classList.add("newText");
   parent.classList.add("doneToDo");
+  iftrue = true;
 }
 function editToDo(e) {
   let paragraph = e.target.parentNode.querySelector("p");
@@ -30,8 +31,12 @@ function saveToDo(e) {
   updatedParagraph.classList.add("saveParagraph");
   updatedParagraph.textContent = input.value;
   e.target.parentNode.appendChild(updatedParagraph);
+  if(iftrue==true){
+    updatedParagraph.style.color="green"
+  }
   input.remove();
   e.target.remove();
+
 }
 
 
@@ -93,9 +98,10 @@ function filterPendingOnlyToDo() {
   for (let i = 0; i < display.children.length; i++) {
     if (display.children[i].classList.contains("doneToDo")) {
       display.children[i].style.display = "none"
-    }
-    if (!display.children[i].classList.contains("doneToDo")){
+    }else{
+   
       display.children[i].style.display = "flex"
+    
     }
   }
 
@@ -111,7 +117,7 @@ function resetFilter() {
 let filterToDo = document.querySelector(".filterToDo");
 filterToDo.addEventListener("click", filterCompletedToDo);
 let filterByPending = document.querySelector(".filterByPending");
-filterByPending.addEventListener("click", FilterPendingOnlyToDo);
+filterByPending.addEventListener("click", filterPendingOnlyToDo);
 
 
 let allfilterss = document.querySelector(".Allfilters");
