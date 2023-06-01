@@ -88,16 +88,19 @@ function filterCompletedToDo() {
   }
 }
 
-function FilterPendingOnlyToDo() {
+function filterPendingOnlyToDo() {
   let display = document.querySelector(".display");
   for (let i = 0; i < display.children.length; i++) {
     if (display.children[i].classList.contains("doneToDo")) {
       display.children[i].style.display = "none"
     }
+    if (!display.children[i].classList.contains("doneToDo")){
+      display.children[i].style.display = "flex"
+    }
   }
 
 }
-function AllFiltersToDo() {
+function resetFilter() {
   let display = document.querySelector(".display");
   for (let i = 0; i < display.children.length; i++) {
     display.children[i].style.display = "flex";
@@ -112,6 +115,6 @@ filterByPending.addEventListener("click", FilterPendingOnlyToDo);
 
 
 let allfilterss = document.querySelector(".Allfilters");
-allfilterss.addEventListener("click", AllFiltersToDo);
+allfilterss.addEventListener("click", resetFilter);
 
 submitToDo();
