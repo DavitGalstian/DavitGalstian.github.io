@@ -93,9 +93,10 @@ function filterPendingOnlyToDo() {
   for (let i = 0; i < display.children.length; i++) {
     if (display.children[i].classList.contains("doneToDo")) {
       display.children[i].style.display = "none"
-    }
-    if (!display.children[i].classList.contains("doneToDo")){
+    }else{
+   
       display.children[i].style.display = "flex"
+    
     }
   }
 
@@ -111,7 +112,7 @@ function resetFilter() {
 let filterToDo = document.querySelector(".filterToDo");
 filterToDo.addEventListener("click", filterCompletedToDo);
 let filterByPending = document.querySelector(".filterByPending");
-filterByPending.addEventListener("click", FilterPendingOnlyToDo);
+filterByPending.addEventListener("click", filterPendingOnlyToDo);
 
 
 let allfilterss = document.querySelector(".Allfilters");
