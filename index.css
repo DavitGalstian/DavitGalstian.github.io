@@ -92,7 +92,7 @@ button {
     border-radius: 15px;
     height: 40px;
     width: 242px;
-    margin-left: 88px;
+    margin-left: 132px;
     margin-bottom: 10px;
 }
 
@@ -147,4 +147,12 @@ button {
 
 .toDoListP {
     color: white;
+}
+
+.editInput{
+    font-size: 18px;
+    background-color: #454545;
+    color: white;
+    border-radius: 15px;
+    border-color: white;
 }
