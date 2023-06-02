@@ -6,7 +6,7 @@ function generateId() {
 }
 
 let getid = generateId();
-
+let toDo = [{ title: 'sad', id: getid(), status: 'PENDING' }];
 function render(toDo) {
   let display = document.querySelector(".display");
 
@@ -32,7 +32,7 @@ function render(toDo) {
   }
 }
 
-let toDo = [{ title: 'sad', id: getid(), status: 'PENDING' }];
+
 render(toDo);
 
 
