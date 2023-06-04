@@ -104,11 +104,11 @@ button {
     margin-left: 12px;
 }
 
-.toDoListDiv {
+.to-do-list {
     display: flex;
     align-items: center;
-    margin-top: 20px;
     justify-content: space-between;
+    margin-top: 20px;
     border: 1px solid white;
     padding: 5px;
     background-color: #454545;
