@@ -15,24 +15,24 @@ let todos = getTodos();
 
 function render(todos) {
 
-  console.log(todos)
-  let display = document.querySelector(".display");
+
+  const display = document.querySelector(".display");
   display.innerHTML = '';
 
   for (let i = 0; i < todos.length; i++) {
-    let newDiv = document.createElement("div");
-    newDiv.classList.add("to-do-list");
-    let newinput = document.createElement("input")
+    let todo = document.createElement("div");
+    todo.classList.add("to-do-list");
+    let newInput = document.createElement("input")
     if (todos[i].status == "editing") {
 
 
-      newinput.value = todos[i].title;
-      newDiv.appendChild(newinput);
+      newInput.value = todos[i].title;
+      todo.appendChild(newInput);
     } else {
       let newText = document.createElement("p");
       newText.textContent = todos[i].title;
       newText.classList.add("toDoListP");
-      newDiv.appendChild(newText);
+      todo.appendChild(newText);
       if (todos[i].status == "done") {
         newText.style.color = "green";
       }
@@ -41,12 +41,12 @@ function render(todos) {
 
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
-    newDiv.appendChild(deleteButton);
+    todo.appendChild(deleteButton);
     deleteButton.addEventListener("click", () => deleteToDo(todos[i].id));
 
     let doneButton = document.createElement("button");
     doneButton.textContent = "Done";
-    newDiv.appendChild(doneButton);
+    todo.appendChild(doneButton);
     doneButton.addEventListener("click", () => markAsDone(todos[i].id));
 
     if (todos[i].status == "editing") {
@@ -54,15 +54,15 @@ function render(todos) {
       let saveButton = document.createElement("button")
       saveButton.textContent = "Save";
 
-      newDiv.appendChild(saveButton);
+      todo.appendChild(saveButton);
       saveButton.addEventListener("click", function () {
-        saveToDo(todos[i].id, newinput.value);
+        saveTodo(todos[i].id, newInput.value);
       });
     } else {
 
       let editButton = document.createElement("button");
       editButton.textContent = "Edit";
-      newDiv.appendChild(editButton);
+      todo.appendChild(editButton);
 
       editButton.addEventListener("click", function () {
         editToDo(todos[i].id)
@@ -70,26 +70,26 @@ function render(todos) {
 
       let inProgressButton = document.createElement("button");
       inProgressButton.textContent = "inProgress";
-      newDiv.appendChild(inProgressButton);
-      
+      todo.appendChild(inProgressButton);
+
       inProgressButton.addEventListener("click", function () {
         filterinprogres(todos[i].id);
       });
 
     }
-    display.appendChild(newDiv);
+    display.appendChild(todo);
   }
 }
 
 function filterbystatus(status) {
-  let newtodosByPending = [];
+  let newtodosByStatus= [];
   for (let i = 0; i < todos.length; i++) {
     if (todos[i].status == status) {
-      newtodosByPending.push(todos[i]);
+      newtodosByStatus.push(todos[i]);
     }
   }
-  render(newtodosByPending);
-  ender(newtodosByProgress);
+  render(newtodosByStatus);
+
 }
 function filterAllToDo() {
   render(todos);
@@ -99,7 +99,6 @@ function deleteToDo(id) {
   todos = todos.filter(todo => todo.id != id);
   render(todos);
   localStorage.setItem('todos', JSON.stringify(todos));
-  console.log(id);
 }
 
 function markAsDone(id) {
@@ -113,7 +112,7 @@ function markAsDone(id) {
 }
 
 function sumbitToDo() {
-  let input = document.querySelector(".a");
+  let input = document.querySelector(".main-input ");
   if (input.value == "") {
     return;
   }
@@ -143,13 +142,13 @@ function filterinprogres(id) {
   render(todos);
 }
 
-function sortToDo() {
+function sortTodos() {
   todos.sort((a, b) => a.title.localeCompare(b.title))
   render(todos)
 
 }
 
-function saveToDo(id, title) {
+function saveTodo(id, title) {
   for (let i = 0; i < todos.length; i++) {
     if (todos[i].id == id) {
       todos[i].status = "pending";
@@ -176,7 +175,7 @@ let resetFilter = document.querySelector(".Allfilters")
 resetFilter.addEventListener("click", filterAllToDo)
 
 let Sortbutton = document.querySelector(".sortButton");
-Sortbutton.addEventListener("click", sortToDo)
+Sortbutton.addEventListener("click", sortTodos)
 
 let submitButton = document.querySelector(".submit");
 submitButton.addEventListener("click", sumbitToDo);
