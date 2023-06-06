@@ -14,21 +14,20 @@ const getID = generateId();
 let todos = getTodos();
 
 function render(todos) {
-
-
   const display = document.querySelector(".display");
   display.innerHTML = '';
-
   for (let i = 0; i < todos.length; i++) {
     let todo = document.createElement("div");
     todo.classList.add("to-do-list");
     let newInput = document.createElement("input")
     if (todos[i].status == "editing") {
-
-
       newInput.value = todos[i].title;
       todo.appendChild(newInput);
     } else {
+      let checkbox = document.createElement("INPUT");
+      checkbox.setAttribute("type", "checkbox");
+      todo.appendChild(checkbox);
+
       let newText = document.createElement("p");
       newText.textContent = todos[i].title;
       newText.classList.add("toDoListP");
@@ -82,7 +81,7 @@ function render(todos) {
 }
 
 function filterbystatus(status) {
-  let newtodosByStatus= [];
+  let newtodosByStatus = [];
   for (let i = 0; i < todos.length; i++) {
     if (todos[i].status == status) {
       newtodosByStatus.push(todos[i]);
@@ -91,6 +90,7 @@ function filterbystatus(status) {
   render(newtodosByStatus);
 
 }
+
 function filterAllToDo() {
   render(todos);
 }
@@ -168,6 +168,21 @@ function filterbyInProgress() {
   }
   render(newtodosByProgress);
 }
+function deleteButton() {
+  let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+  let checkboxestodos = []
+  for (let i = 0; i < checkboxes.length; i++) {
+    if (!checkboxes[i].checked) {
+      checkboxestodos.push(todos[i])
+    }
+    console.log(checkboxes[i])
+  }
+ 
+  render(checkboxestodos)
+}
+
+let deleteButtons = document.querySelector(".delete-all")
+deleteButtons.addEventListener("click", deleteButton)
 let filterbyInProgresshtml = document.querySelector(".filterbyinProgress");
 filterbyInProgresshtml.addEventListener("click", filterbyInProgress)
 
