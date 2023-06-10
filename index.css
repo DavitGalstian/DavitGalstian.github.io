@@ -49,7 +49,7 @@ button {
     -ms-user-select: none;
     user-select: none;
     vertical-align: middle;
-    -moz-appearance: none;
+    -moz-appearance8i: none;
     -webkit-appearance: none;
     -webkit-text-decoration: none;
     text-decoration: none;
@@ -85,14 +85,16 @@ button {
     flex-direction: column;
 }
 
-.a {
+.main-input {
     font-size: 18px;
     background-color: #454545;
     color: white;
     border-radius: 15px;
     height: 40px;
     width: 242px;
-    margin-left: 132px;
+    
+      margin-left: 247px;
+
     margin-bottom: 10px;
 }
 
@@ -104,7 +106,7 @@ button {
     margin-left: 12px;
 }
 
-.to-do-list {
+.toDolist {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -155,4 +157,18 @@ button {
     color: white;
     border-radius: 15px;
     border-color: white;
+}
+
+
+.medium{
+    background-color: yellow;
+
+}
+
+.low{
+    background-color: green;
+}
+
+.high{
+    background-color: red;
 }

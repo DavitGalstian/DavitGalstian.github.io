@@ -14,131 +14,172 @@ const getID = generateId();
 let todos = getTodos();
 
 function render(todos) {
+
+  console.log(todos);
   const display = document.querySelector(".display");
   display.innerHTML = '';
-  for (let i = 0; i < todos.length; i++) {
-    let todo = document.createElement("div");
-    todo.classList.add("to-do-list");
-    let newInput = document.createElement("input")
-    if (todos[i].status == "editing") {
-      newInput.value = todos[i].title;
-      todo.appendChild(newInput);
+
+  todos.forEach(todo => {
+    let todoElement = document.createElement("div");
+    todoElement.classList.add("toDolist");
+    let editInput  = document.createElement("input")
+    if (todo.status === "editing") {
+      editInput .value = todo.title;
+      todoElement.appendChild(editInput );
     } else {
+
       let checkbox = document.createElement("INPUT");
       checkbox.setAttribute("type", "checkbox");
-      todo.appendChild(checkbox);
+      checkbox.checked = todos.isChecked;
+      todoElement.appendChild(checkbox);
+      let select = document.createElement("select");
+     select.value = todo.priority; 
+      
+      console.log(select.value)
+      
+
+      let option1 = document.createElement("option");
+      option1.textContent = "low"
+      option1.value = "low"
+     
+      select.appendChild(option1)
+
+      let option2 = document.createElement("option");
+      option2.textContent = "medium"
+      option2.value = "medium"
+      select.appendChild(option2)
+      let option3 = document.createElement("option");
+      option3.textContent = "high"
+      option3.value = "high"
+
+
+      select.appendChild(option3)
+      todoElement.appendChild(select);
 
       let newText = document.createElement("p");
-      newText.textContent = todos[i].title;
+      newText.textContent = todo.title
       newText.classList.add("toDoListP");
-      todo.appendChild(newText);
-      if (todos[i].status == "done") {
-        newText.style.color = "green";
+      todoElement.appendChild(newText);
+      if (todo.status === "done") {
+        newText.style.color = "blue";
       }
+      const todoId = todo.id;
+
+      checkbox.addEventListener('change', function (e) {
+        let isChecked = e.target.checked;
+        todo.isChecked = isChecked;
+        localStorage.setItem('todos', JSON.stringify(todos));
+      });
+
+      select.addEventListener("change", function (event) {
+
+        let priority = event.target.value;
+        console.log(priority, todo.id);
+
+        todos.forEach(todo => {
+          if (todo.id == todoId) {
+            todo.priority = priority;
+            
+          }
+        });
+        localStorage.setItem('todos', JSON.stringify(todos));
+        render(todos);
+      })
     }
 
-
+    if (todo.priority == "low") {
+      todoElement.style.backgroundColor = "green";
+    }
+    if (todo.priority == "medium") {
+      todoElement.style.backgroundColor = "yellow";
+    }
+    if (todo.priority == "high") {
+      todoElement.style.backgroundColor = "red";
+    }
     let deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
-    todo.appendChild(deleteButton);
-    deleteButton.addEventListener("click", () => deleteToDo(todos[i].id));
+    todoElement.appendChild(deleteButton);
+    deleteButton.addEventListener("click", () => deleteToDo(todo.id));
 
     let doneButton = document.createElement("button");
     doneButton.textContent = "Done";
-    todo.appendChild(doneButton);
-    doneButton.addEventListener("click", () => markAsDone(todos[i].id));
+    todoElement.appendChild(doneButton);
+    doneButton.addEventListener("click", function () {
+      markAsDone(todo.id);
+    });
 
-    if (todos[i].status == "editing") {
+    if (todo.status == "editing") {
 
       let saveButton = document.createElement("button")
       saveButton.textContent = "Save";
 
-      todo.appendChild(saveButton);
+      todoElement.appendChild(saveButton);
       saveButton.addEventListener("click", function () {
-        saveTodo(todos[i].id, newInput.value);
+        saveTodo(todo.id, editInput .value);
       });
+
     } else {
 
       let editButton = document.createElement("button");
       editButton.textContent = "Edit";
-      todo.appendChild(editButton);
-
+      todoElement.appendChild(editButton);
       editButton.addEventListener("click", function () {
-        editToDo(todos[i].id)
-      })
-
+        editToDo(todo.id);
+      });
       let inProgressButton = document.createElement("button");
       inProgressButton.textContent = "inProgress";
-      todo.appendChild(inProgressButton);
+      todoElement.appendChild(inProgressButton);
 
       inProgressButton.addEventListener("click", function () {
-        filterinprogres(todos[i].id);
+        filterinprogres(todo.id);
       });
-
     }
-    display.appendChild(todo);
-  }
+    display.appendChild(todoElement);
+  })
 }
-
 function filterbystatus(status) {
-  let newtodosByStatus = [];
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].status == status) {
-      newtodosByStatus.push(todos[i]);
-    }
-  }
-  render(newtodosByStatus);
-
+  let newtodosByStatus = todos.filter(todo => todo.status == status);
+  render(newtodosByStatus)
 }
-
 function filterAllToDo() {
   render(todos);
 }
 
-function deleteToDo(id) {
-  todos = todos.filter(todo => todo.id != id);
-  render(todos);
-  localStorage.setItem('todos', JSON.stringify(todos));
-}
-
 function markAsDone(id) {
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].id == id) {
-      todos[i].status = "done";
+  todos.forEach(todo => {
+    if (todo.id == id) {
+      todo.status = "done"
     }
-  }
+  });
   localStorage.setItem('todos', JSON.stringify(todos));
   render(todos);
 }
-
 function sumbitToDo() {
   let input = document.querySelector(".main-input ");
   if (input.value == "") {
     return;
   }
-  let newTodo = { title: input.value, id: getID(), status: 'pending' };
+  let newTodo = { title: input.value, id: getID(), status: 'pending', priority: "low", isChecked: false };
   todos.push(newTodo);
   localStorage.setItem('todos', JSON.stringify(todos));
   render(todos);
 }
 
 function editToDo(id) {
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].id == id) {
-      todos[i].status = "editing";
+  todos.forEach(todo => {
+    if (todo.id === id) {
+      todo.status = "editing";
     }
-  }
-  localStorage.setItem('todos', JSON.stringify(todos));
+  });
+  localStorage.setItem("todos", JSON.stringify(todos));
   render(todos);
 }
-
 function filterinprogres(id) {
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].id == id) {
-      todos[i].status = "inprogress";
+  todos.forEach(todo => {
+    if (todo.id == id) {
+      todo.status = "inprogress"
     }
-  }
-
+  })
   render(todos);
 }
 
@@ -148,41 +189,55 @@ function sortTodos() {
 
 }
 
+
 function saveTodo(id, title) {
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].id == id) {
-      todos[i].status = "pending";
-      todos[i].title = title
+  todos.forEach(todo => {
+    if (todo.id == id) {
+      todo.status = "pending"
+      todo.title = title
     }
-  }
+  })
   localStorage.setItem('todos', JSON.stringify(todos));
   render(todos);
 }
 
 function filterbyInProgress() {
-  let newtodosByProgress = [];
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].status == "inprogress") {
-      newtodosByProgress.push(todos[i]);
-    }
-  }
-  render(newtodosByProgress);
+  let newtodosByProgress = todos.filter(todo => todo.status === "inprogress")
+  render(newtodosByProgress)
 }
-function deleteButton() {
-  let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  let checkboxestodos = []
-  for (let i = 0; i < checkboxes.length; i++) {
-    if (!checkboxes[i].checked) {
-      checkboxestodos.push(todos[i])
-    }
-    console.log(checkboxes[i])
-  }
- 
-  render(checkboxestodos)
+function checkTodo() {
+  todos = todos.filter(todo => !todo.isChecked);
+  localStorage.setItem('todos', JSON.stringify(todos));
+  render(todos);
 }
 
+function checkTodo() {
+  todos = todos.filter(todo => !todo.isChecked);
+
+  localStorage.setItem('todos', JSON.stringify(todos));
+  render(todos);
+}
+
+
+
+function deleteToDo(id) {
+  todos.forEach(todo => {
+    if (todo.id == id) {
+      todo.isArchived = true;
+    }
+  });
+
+  todos = todos.filter(todo => todo.id != id);
+  localStorage.setItem('todos', JSON.stringify(todos));
+  render(todos);
+}
+
+
+
+
+
 let deleteButtons = document.querySelector(".delete-all")
-deleteButtons.addEventListener("click", deleteButton)
+deleteButtons.addEventListener("click", checkTodo)
 let filterbyInProgresshtml = document.querySelector(".filterbyinProgress");
 filterbyInProgresshtml.addEventListener("click", filterbyInProgress)
 
